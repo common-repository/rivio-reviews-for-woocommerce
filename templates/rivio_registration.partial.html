@@ -1,0 +1,72 @@
+<form  method='post'>
+    {{wp_nonce_field}}
+    <div class="rivio">
+        <div class="row">
+            <div class="col col-4">
+                <div class="rivio-panel rivio-register">
+                    <div class="rivio-panel-head">Rivio Registration</div>
+                    <div class="rivio-panel-body">
+                        <p>Fill out the form below and click register to get started with Rivio.</p>
+                        <div class="rivio-form">
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        USERNAME
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="text" name='rivio_user_name' value="{{user_name}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        EMAIL ADDRESS:
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="text" name='rivio_user_email' value="{{email}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        PASSWORD:
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="password" name='rivio_user_password'>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        RE-TYPE YOUR PASSWORD:
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="password" name='rivio_user_confirm_password'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type='submit' name='rivio_register' value='Register' class='rivio-btn rivio-btn-primary' id='save_rivio_settings'/>
+                <form method='post'>
+                    <div>Already registered to Rivio?<input type='submit' name='log_in_button' value='Log in' class='rivio-btn rivio-btn-default' /></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,245 @@
+<form  method='post' id='rivio_settings_form'>
+    <div class="rivio">
+        {{wp_nonce_field}}
+        <div class="pull-right rivio-actions">
+            <span class="rivio-text-success {{update}}"> <i>✓</i> Settings have been successfully saved.</span>
+            <input type='submit' name='rivio_settings' value='Save settings' class='rivio-btn rivio-btn-primary' id='save_rivio_settings'/>
+            <a href="http://api.getrivio.com/api/user/create-user-session?api_key={{api_key}}&secret_key={{secret_key}}" class="rivio-btn rivio-btn-default" target="_blank">Go to the Dashboard</a>
+        </div>
+
+        <h2 class="rivio-title">
+            <img src="{{plugin_url}}/assets/images/rivio-logo.svg" height="32" alt="">
+            <span>RIVIO Reviews</span>
+        </h2>
+        <section>
+        <div class="row">
+            <div class="col col-8">
+                <div class="rivio-panel">
+                    <div class="rivio-panel-head">
+                        Placement
+                    </div>
+                    <div class="rivio-panel-body">
+                        <div class="row">
+                            <div class="col col-4">
+                                <div class="rivio-selector {{active_footer}}">
+                                    <label class="rivio-selector-content">
+                                        <div class="rivio-selector-label">
+                                            <input type="radio" name="rivio_widget_location" value="footer" {{location_footer}}> below product
+                                        </div>
+                                        <img class="img-responsive"
+                                             src="{{plugin_url}}/assets/images/preview-footer.png"
+                                             alt="">
+                                    </label>
+                                    <p>
+                                    Reviews will appear below the content block of your product.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col col-4">
+                                <div class="rivio-selector rivio-selector-tab {{active_tab}}">
+                                    <label class="rivio-selector-content">
+                                        <div class="rivio-selector-label">
+                                            <input type="radio" name="rivio_widget_location" value="tab" {{location_tab}}> inside a tab
+                                        </div>
+                                        <img class="img-responsive"
+                                             src="{{plugin_url}}/assets/images/preview-tab.png"
+                                             alt="">
+                                    </label>
+                                    <p>
+                                        Reviews will be shown inside a tab on the product page. Users will have to click on the tab to read them.
+                                    </p>
+
+                                    <div class="rivio-selector-option">
+                                        <h4>OPTIONS</h4>
+                                        <div class="row rivio-form">
+                                            <div class="col col-4 rivio-form-label">Label on tab</div>
+                                            <div class="col col-8 rivio-form-value"><input type="text" value="{{widget_tab_name}}"  name='rivio_widget_tab_name'></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col col-4">
+                                <div class="rivio-selector {{active_other}}">
+
+                                    <label class="rivio-selector-content">
+                                        <div class="rivio-selector-label">
+                                            <input type="radio" name="rivio_widget_location" value="other" {{location_other}}> custom
+                                        </div>
+                                        <img class="img-responsive"
+                                             src="{{plugin_url}}/assets/images/preview-custom.png"
+                                             alt="">
+                                    </label>
+                                    <p>
+                                        Custom placement means that you'll have to insert the RIVIO embed snippet manually, wherever you want your reviews to show.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-12">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col col-4">
+                <div class="rivio-panel">
+                    <div class="rivio-panel-head">Credentials</div>
+                    <div class="rivio-panel-body">
+                        <div class="rivio-form">
+                            <!--<div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        SHOP
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        API KEY
+                                    </div>
+                                </div>
+                                <div class="col col-8">
+                                    <div class="rivio-form-value">
+                                        <input type="text" name='rivio_app_key' value="{{api_key}}" {{read_only}}>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col col-4">
+                                    <div class="rivio-form-label">
+                                        SECRET KEY
+                                    </div>
+                                </div>
+                                {{secret_key_block}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <div class="rivio-panel">
+                    <div class="rivio-panel-head">OPTIONS</div>
+                    <div class="rivio-panel-body">
+                        <div class="rivio-form">
+                            <div class="row">
+                                <div class="col col-12">
+                                    <label class="rivio-form-label">
+                                        <div class="rivio-form-box">
+                                            <input type="checkbox" name='rivio_rating_stars_enabled_product' {{show_product}} value='1'>
+                                        </div>
+                                        SHOW REVIEWS ON PRODUCT PAGE
+                                    </label>
+                                    <p>
+                                        If you want to disable reviews on your product page, leave this box unchecked.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-12">
+                                    <label class="rivio-form-label">
+                                        <div class="rivio-form-box">
+                                            <input type="checkbox" name='rivio_rating_stars_enabled_category' {{show_category}} value='1'>
+                                        </div>
+                                        SHOW STARS ON CATEGORY LIST PAGE
+                                    </label>
+                                    <p>
+                                        If you want to disable displaying avg. rating on your product list pages, leave this box unchecked.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-12">
+                                    <label class="rivio-form-label">
+                                        <div class="rivio-form-box">
+                                            <input type="checkbox" name='disable_default_review_system' {{disable_default}} value='1'>
+                                        </div>
+                                        DISABLE DEFAULT REVIEW SYSTEM
+                                    </label>
+                                    <p>
+                                        If you want to disable the default review system check this box.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col col-12">
+                                    {{submit_past_orders}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section>
+        <div class="row">
+            <div class="col col-12">
+                <div class="rivio-panel rivio-panel-transparent rivio-text-center">
+                    <div class="rivio-panel-head">WIDGETS</div>
+                    <div class="rivio-panel-body">
+                        <p>RIVIO offers various embeddable widgets, which allow you to increase user engagement and custumer trust.</p>
+                        <div class="row rivio-mosaic">
+                            <div class="col col-3 ">
+                                <div class="rivio-mosaic-title">
+                                SELLER RATING BADGE
+                                </div>
+                                <p class="rivio-mosaic-thumb rivio-mosaic-thumb-noborder">
+                                    <img src="{{plugin_url}}/assets/images/badge.png">
+                                </p>
+                                <p>
+                                    <a href="http://api.getrivio.com/api/user/create-user-session?api_key={{api_key}}&secret_key={{secret_key}}&page=badge" class="rivio-btn rivio-btn-default" target="_blank">GET THIS WIDGET</a>
+                                </p>
+                            </div>
+                            <div class="col col-3">
+
+                                <div class="rivio-mosaic-title">
+                                    Costumer testimonials
+                                </div>
+                                <p class="rivio-mosaic-thumb">
+                                    <img class="img-responsive" src="{{plugin_url}}/assets/images/testimonial.png">
+                                </p>
+                                <p>
+                                    <a href="http://api.getrivio.com/api/user/create-user-session?api_key={{api_key}}&secret_key={{secret_key}}&page=testimonials" class="rivio-btn rivio-btn-default" target="_blank">GET THIS WIDGET</a>
+                                </p></div>
+                            <div class="col col-3">
+                                <div class="rivio-mosaic-title">Google SEO Stars
+                            </div>
+                                <p class="rivio-mosaic-thumb">
+                                <img class="img-responsive" src="{{plugin_url}}/assets/images/rivio-stars-widget.png" height="160">
+                            </p>
+                            <p>
+                                <a href="http://api.getrivio.com/api/user/create-user-session?api_key={{api_key}}&secret_key={{secret_key}}&page=seo" class="rivio-btn rivio-btn-default" target="_blank">GET THIS WIDGET</a>
+                            </p>
+                            </div>
+                            <div class="col col-3">
+                                <div class="rivio-mosaic-title">
+                                    Social Sharing
+                                </div>
+                                <p class="rivio-mosaic-thumb">
+                                    <img class="img-responsive" src="{{plugin_url}}/assets/images/rivio-share-sm.png" height="160">
+                                </p>
+                                <p>
+                                    <a href="http://api.getrivio.com/api/user/create-user-session?api_key={{api_key}}&secret_key={{secret_key}}&page=social" class="rivio-btn rivio-btn-default" target="_blank">GET THIS WIDGET</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </section>
+
+    </div>
+</form>
